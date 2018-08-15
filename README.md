@@ -8,8 +8,8 @@ npm i
 
 ## Ponderações
 
-* O sistema do github não permite requisições REST, sendo nescessário utilizar o >https://rawgit.com;
-> GET https://rawgit.com/faelsmello/teste-front-end/master/db.json
+* O sistema do github não permite requisições REST, sendo nescessário utilizar o https://rawgit.com ;
+> GET https://rawgit.com/faelsmello/teste-front-end/master/db.json;
 
 * Foi utilizado o plugin ngStorage para o gerenciamento dos dados no local storage;
 
