@@ -3,11 +3,18 @@ app.controller('listarCtrl', ['$scope', '$localStorage', '$state', function($sco
 $scope.lista = $localStorage.lista;
 $scope.edit = $scope.cadastro;
 
+$scope.mostrartooltip = function (){$scope.ocultartooltip = {"display" : "block"};};
   
  
 $scope.ver = function ($index){
 	$scope.vercad = $scope.lista[$index];
-	$('#vercadModal').modal('show');
+  $('#vercadModal').modal('show');
+  $scope.ocultartooltip = { "display" : "none"};
+
+$('#vercadModal').on('hide.bs.modal', function (event) {
+  $scope.ocultartooltip = {"display" : "block"};
+})
+
 	$scope.editar = function (){
 		$('#vercadModal').modal('hide');
 		$state.go('dashboard.editar', { id: $index});
