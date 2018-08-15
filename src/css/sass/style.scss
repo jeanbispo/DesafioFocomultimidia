@@ -1,0 +1,127 @@
+body {
+color: white;
+font-family: Ubuntu !important;
+}
+table {
+    background-color: white !important;
+}
+
+a {
+   color: white !important;
+   &:hover {color: #c9302c !important;}
+  }
+
+.t-c-w {color: white}
+#bg {
+    background: #3f4c6b;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.navbar-glite {
+    background-color: rgba(0,0,0,0.1);
+    box-shadow: 0px 3px 4px rgba(0,0,0,0.2);
+
+.navbar-nav > .active > a, .navbar-glite .navbar-nav > .active > a:hover, .navbar-glite .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: rgba(0,0,0,0.3);
+    }
+    .navbar-nav > li > a {
+    color: #9d9d9d;
+}
+}
+
+.btn-splg {
+    padding: 35px 16px !important;
+}
+
+.navbar {
+     margin-bottom: 0px !important;
+}
+.form-center{
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+	bottom: 0;
+	min-height: 20px;
+    padding: 19px;
+    margin-bottom: 0px;
+    background-color: rgb(57, 68, 96);
+    box-shadow: 0px -3px 4px rgba(0,0,0,0.2);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    color: white;
+}
+
+.bgblur{
+			width: 450px;
+			height: 300px;
+			margin-left: auto;
+			margin-right: auto;
+
+		    border-radius: 4px;
+		    padding: 20px; 
+		    position: absolute;
+		    filter: blur(10px);
+}
+
+.blur{
+
+			width: 450px;
+			height: 300px;
+			text-align: center;
+			margin-top: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: rgba(0,0,0,0.1);
+		    box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+		    border-radius: 4px;
+
+}
+
+ 
+.tooltip{
+
+  background: #d9534f;
+  color: #fff;
+  padding: 3px;
+  position: relative !important;
+  width: 50px;
+  opacity: 1 !important;
+  border-radius: 4px;
+
+&:before {
+    border: 10px solid transparent;
+    border-right-color: #d9534f;
+    content: "";
+    left: -20px;
+    position: absolute;
+    opacity: 1 !important;}
+}
+
+.modal-title {
+    display: inline;}
+
+.btn-outline-info {
+    color: #5bc0de !important;
+    background-image: none !important;
+    background-color: transparent;
+    border-color: #5bc0de !important;
+    &:hover {
+    color: #fff !important;
+    background-color: #5bc0de !important;
+    border-color: #5bc0de !important;
+}
+}
+
+
+.navbar-logo img {
+width: 70%;
+padding: 5px;
+}

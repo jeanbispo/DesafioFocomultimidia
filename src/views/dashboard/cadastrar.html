@@ -1,0 +1,173 @@
+<div class="tooltip m-xs m-l-md m-b-n">
+  <button onClick="javascript:history.go(-1);" class="btn btn-xs btn-danger">Voltar</button>
+</div>
+
+<div class="wrapper-lg m-lg r-2x bg-white">
+  <form name="cadform" novalidate>
+    <div class="form-group row">
+    <div class="col-lg-12 text-center">
+      <label class="col-2 col-form-label text-center">Dados Pessoais</label>
+    </div>
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-lg-8">
+        <label for="example-text-input" class="col-2 col-form-label">Nome Completo</label>
+          <div class="col-8">
+            <input ng-model="cad.name" name="name" class="form-control" type="text" required>
+            <small style="color:red" ng-show="cadform.name.$error.required" class="form-text text-muted">Nome é obrigatório</small>
+          </div>
+        </div>
+        <div class="col-lg-4">
+        <label for="example-text-input" class="col-2 col-form-label">CPF</label>
+          <div class="col-4">
+            <input ng-model="cad.cpf" ng-pattern="/\d{11}/" name="cpf" class="form-control"  type="text" value="" required>
+            <small style="color:red" ng-show="cadform.cpf.$error.required" class="form-text text-muted">O CPF é obrigatório<br></small>
+            <small style="color:red" ng-show="cadform.cpf.$error.pattern" class="form-text text-muted">O CPF é inválido<br></small>
+            <small class="form-text text-muted">Somente Números</small>
+          </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="form-group row">
+    <div class="col-lg-12 text-center">
+      <label class="col-2 col-form-label text-center">Dados de Contato</label>
+    </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-8">
+            <label for="example-text-input" class="col-2 col-form-label">Email</label>
+            <div class="col-8">
+              <input ng-model="cad.email" name="email" class="form-control" type="text" value="null" required>
+              <small style="color:red" ng-show="cadform.email.$error.required" class="form-text text-muted">O e-mail é obrigatório<br></small>
+              <small style="color:red" ng-show="cadform.email.$error.email" class="form-text text-muted">E-mail inválido</small>
+            </div>
+        </div>
+        <div class="col-lg-4">
+         <label for="example-date-input" class="col-1 m-r-n-xl col-form-label">Telefone</label>
+          <div class="col-4">
+             <input ng-model="cad.phone" ng-pattern="/\d{11}/" name="phone" class="form-control" type="text" value="" required>
+             <small style="color:red" ng-show="cadform.phone.$error.required" class="form-text text-muted">O telefone é obrigatório<br></small>
+             <small style="color:red" ng-show="cadform.phone.$error.pattern" class="form-text text-muted">O telefone é inválido<br></small>
+             <small class="form-text text-muted">Somente Números</small>
+          </div>
+        </div>
+    
+    </div>
+    
+    
+    
+    <div class="form-group row">
+    <div class="col-lg-12 text-center">
+      <label class="col-2 col-form-label text-center">Dados de Endereço</label>
+    </div>
+    </div>
+    
+    <div class="form-group row">
+        <div class="col-lg-4">
+            <label for="cep" class="col-1 m-r-n-xl col-form-label">CEP</label>
+             <div class="col-2">
+                <input ng-model="cad.cep" name="cep" class="form-control" type="text" ng-blur="getCep()" via-cep="cep" required>
+                <small style="color:red" ng-show="cadform.cep.$error.required" class="form-text text-muted">O cep é obrigatório<br></small>
+                <small style="color:red" ng-show="cpfValido" class="form-text text-muted">Cep inválido<br></small>
+                <small class="form-text text-muted">Somente Números</small>
+             </div>
+           </div>
+    
+         <div class="col-lg-8">
+            <label for="example-text-input" class="col-2 col-form-label">Logradouro</label>
+            <div class="col-8">
+              <input ng-model="cad.place" name="place" class="form-control" type="text" value="" via-cep="logradouro" required>
+              <small style="color:red" ng-show="cadform.place.$error.required" class="form-text text-muted">O logradouro é obrigatório<br></small>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <div class="form-group row">
+    
+        <div class="col-lg-4">
+            <label for="example-date-input" class="col-1 m-r-n-xl col-form-label">Bairro</label>
+             <div class="col-2">
+                <input ng-model="cad.Address" name="bairro" class="form-control" type="text" value="" via-cep="bairro" required>
+                <small style="color:red" ng-show="cadform.bairro.$error.required" class="form-text text-muted">O bairro é obrigatório<br></small>
+                
+             </div>
+           </div>
+    
+        <div class="col-lg-4">
+            <label for="example-text-input" class="col-2 col-form-label">Cidade</label>
+            <div class="col-4">
+              <input ng-model="cad.city" name="city" class="form-control" type="text" value="" via-cep="localidade" required>
+              <small style="color:red" ng-show="cadform.city.$error.required" class="form-text text-muted">A cidade é obrigatória<br></small>
+            </div>
+        </div>
+         
+        <div class="col-lg-4">
+         <label for="example-date-input" class="col-1 m-r-n-xl col-form-label">Estado</label>
+          <div class="col-2">
+             <input ng-model="cad.uf" class="form-control" name="uf" type="text" value="" via-cep="uf" required>
+             <small style="color:red" ng-show="cadform.uf.$error.required" class="form-text text-muted">O estado é obrigatório<br></small>
+          </div>
+        </div>
+    
+    
+    </div>
+    
+
+    <div class="wrapper-lg m-lg r-2x bg-white">
+        <div class="row t-a-c">
+            <div class="col-md-6"><button type="submit" ng-click="continuarcadastro()" class="btn btn-warning btn-block">Limpar Formulário</button></div>
+            <div class="col-md-6">
+              <button
+              type="submit" 
+              ng-click="addcad()"  
+              class="btn btn-success btn-block" 
+              ng-disabled="cadform.$invalid || buttonDisabled">Salvar</button>
+             
+            </div>
+        </div>
+        </div>
+    
+    </form>
+
+</div>
+
+
+
+<!--   ************************ MODAL ************************ -->
+
+
+<div class="modal fade" id="confirmSaveModal" tabindex="-2" role="dialog" aria-labelledby="confirmSaveModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content t-a-c">
+        <div class="modal-body">
+      Cadastro Salvo!</div>
+      <div class="modal-footer" style="text-align: center !important;">
+      <button class="btn btn-secondary" ng-click="gohome()" type="button">Voltar para Home</button>
+      <button class="btn btn-success" ng-click="continuarcadastro()" type="button">Continuar</button>
+        
+        </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="errorsaveModal" tabindex="-1" role="dialog" aria-labelledby="erroreditModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content t-a-c">
+        <div class="modal-body">
+      Error</div>
+      <div class="modal-footer" style="text-align: center !important;">
+      <button class="btn btn-danger" data-dismiss="modal" type="button">Ok</button>
+        
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
