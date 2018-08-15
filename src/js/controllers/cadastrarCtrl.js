@@ -25,8 +25,6 @@ getCep.getDadoCep($scope.cepbusca)
       $('#errorpesquisaModal').modal('show');
       console.log("error");
       
-        //$scope.cpfValido = true;
-      
   });
 
 };

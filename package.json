@@ -17,5 +17,10 @@
     "jquery": "^3.2.1",
     "ngstorage": "0.3.11",
     "ubuntu-fontface": "^0.1.13"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/shvot/JBdesafiofoco.git"
   }
 }
