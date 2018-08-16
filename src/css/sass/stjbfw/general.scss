@@ -1,0 +1,38 @@
+/*Framework sass e css de alinhamento por Jean Bispo para bootstrap v3*/
+.pull{
+&-none {float: none;}
+&-right {float: right;}
+&-left {float: left;}
+}
+
+.w-100{width: 100%;}
+
+.l-h-lg{line-height: 30px;}
+
+.fa{
+&-2 {font-size: 2em !important;}
+&-3 {font-size: 4em !important;}
+&-4 {font-size: 6em !important;}
+&-5 {font-size: 12em !important;}
+}
+.wrapper{padding:15px;
+&-xs{padding:5px}
+&-sm{padding:10px}
+&-md{padding:20px}
+&-lg{padding:30px}
+&-xl{padding:50px}
+}
+
+
+.item-center{width: auto;}
+.t-a-c{text-align: center;}
+.bg-white{background-color: white;}
+.display-n{display: none;}
+.strong{
+      font-weight: bold;
+}
+
+.thead-default th {
+    color: #464a4c;
+    background-color: #eceeef;
+}

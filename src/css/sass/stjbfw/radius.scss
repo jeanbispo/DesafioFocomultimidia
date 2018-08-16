@@ -1,0 +1,32 @@
+/*Framework sass e css de alinhamento por Jean Bispo para bootstrap v3*/
+.r {
+    border-radius: 2px 2px 2px 2px;
+  
+    &-2x {
+      border-radius: 4px;
+    }
+    
+    &-r-2x {
+      border-top-right-radius: 4px;
+    }
+    
+    &-3x {
+      border-radius: 6px;
+    }
+    
+    &-l {
+      border-radius: 2px 0 0 2px;
+    }
+    
+    &-r {
+      border-radius: 0 2px 2px 0;
+    }
+    
+    &-t {
+      border-radius: 2px 2px 0 0;
+    }
+    
+    &-b {
+      border-radius: 0 0 2px 2px;
+    }
+  }

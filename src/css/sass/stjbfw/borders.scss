@@ -1,0 +1,136 @@
+/*Framework sass e css de alinhamento por Jean Bispo para bootstrap v3*/
+.b {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  
+    &-b-2x{
+      border-bottom: 5px solid white !important;
+      }
+  
+    &-a {
+        border: 1px solid #dee5e7;
+      }
+      
+      &-t {
+        border-top: 1px solid #dee5e7;
+      }
+      
+      &-r {
+        border-right: 1px solid #dee5e7;
+      }
+      
+      &-b {
+        border-bottom: 1px solid #dee5e7;
+      }
+      
+      &-l {
+        border-left: 1px solid #dee5e7;
+      }
+      
+      &-light {
+        border-color: #edf1f2;
+      }
+      
+      &-dark {
+        border-color: #3a3f51;
+      }
+      
+      &-black {
+        border-color: #3a3f51;
+      }
+      
+      &-primary {
+        border-color: #7266ba;
+      }
+      
+      &-success {
+        border-color: #27c24c;
+      }
+      
+      &-info {
+        border-color: #23b7e5;
+      }
+      
+      &-warning {
+        border-color: #fad733;
+      }
+      
+      &-danger {
+        border-color: #f05050;
+      }
+      
+      &-white {
+        border-color: #ffffff;
+      }
+      
+      &-dashed {
+        border-style: dashed !important;
+      }
+      
+      &-l-light {
+        border-left-color: #edf1f2;
+      }
+      
+      &-l-dark {
+        border-left-color: #3a3f51;
+      }
+      
+      &-l-black {
+        border-left-color: #3a3f51;
+      }
+      
+      &-l-primary {
+        border-left-color: #7266ba;
+      }
+      
+      &-l-success {
+        border-left-color: #27c24c;
+      }
+      
+      &-l-info {
+        border-left-color: #23b7e5;
+      }
+      
+      &-l-warning {
+        border-left-color: #fad733;
+      }
+      
+      &-l-danger {
+        border-left-color: #f05050;
+      }
+      
+      &-l-white {
+        border-left-color: #ffffff;
+      }
+      
+      &-l-2x {
+        border-left-width: 2px;
+      }
+      
+      &-l-3x {
+        border-left-width: 3px;
+      }
+      
+      &-l-4x {
+        border-left-width: 4px;
+      }
+      
+      &-l-5x {
+        border-left-width: 5px;
+      }
+      
+      &-2x {
+        border-width: 2px;
+      }
+      
+      &-3x {
+        border-width: 3px;
+      }
+      
+      &-4x {
+        border-width: 4px;
+      }
+      
+      &-5x {
+        border-width: 5px;
+      }
+  }
