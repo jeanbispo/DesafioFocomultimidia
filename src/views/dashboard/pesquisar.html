@@ -1,135 +1,142 @@
 <div class="tooltip m-xs m-l-md m-b-n" ng-style="ocultartooltip">
-	<button ui-sref="dashboard.home" class="btn btn-xs btn-danger">Voltar</button>
+  <button ui-sref="dashboard.home" class="btn btn-xs btn-danger">Voltar</button>
 </div>
+
 <div class="m-lg">
-<div class="form-center">
-<form class="form-horizontal">
-  <div class="input-group">
-      <input type="text" ng-model="search" class="form-control" placeholder="Pesquisar por...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-      </span>
+  <div class="form-center">
+    <form class="form-horizontal">
+      <div class="input-group">
+
+        <input type="text" ng-model="search" class="form-control" placeholder="Pesquisar por...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+        </span>
+
+      </div>
+    </form>
+  </div>
+
+</div>
+<div class="wrapper m-t-n-md m-lg r-2x bg-white">
+  <table class="table table-striped">
+
+    <thead class="table-inverse">
+      <tr>
+        <th ng-click="sort('name');sortType = 'nome'">Nome <i ng-class="{'fa fa-chevron-up':isSortUp('name'),'fa fa-chevron-down':isSortDown('name'), reverse: reverse}"></i>
+        </th>
+        <th class="oculttab" ng-click="sort('cpf');sortType = 'cpf'">CPF <i ng-class="{'fa fa-chevron-up':isSortUp('cpf'),'fa fa-chevron-down':isSortDown('cpf'), reverse: reverse}"></th>
+        <th class="oculttab" ng-click="sort('phone');sortType = 'phone'">Telefone <i ng-class="{'fa fa-chevron-up':isSortUp('phone'),'fa fa-chevron-down':isSortDown('phone'), reverse: reverse}"></th>
+        <th class="oculttab" ng-click="sort('email');sortType = 'email'">Email <i ng-class="{'fa fa-chevron-up':isSortUp('email'),'fa fa-chevron-down':isSortDown('email'), reverse: reverse}"></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="e in lista | orderBy:sortType:reverse | nullfilter | filter:search track by $index " ng-if="lista">
+        <td>{{ e.name }}</td>
+        <td class="oculttab">{{e.cpf}}</td>
+        <td class="oculttab">{{e.phone}}</td>
+        <td class="oculttab">{{e.email}}</td>
+        <td class=""> <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="ver($index)">Ver</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="modal fade" id="vercadModal" tabindex="-1" role="dialog" aria-labelledby="vercadModalLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="mostrartooltip()" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="vercadModalLabel">Cadastro de {{vercad.name}} </h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+              <thead class="thead-default">
+                <tr>
+                  <th class="t-a-c" colspan="2">Dados Pessoais</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="strong">Nome Completo</td>
+                  <td>{{vercad.name}}</td>
+                </tr>
+                <tr>
+                  <td class="strong">CPF</td>
+                  <td>{{vercad.cpf}}</td>
+                </tr>
+                <tr>
+                  <td class="strong">Telefone</td>
+                  <td>{{ vercad.phone}}</td>
+                </tr>
+                <tr>
+                  <td class="strong" nowrap="true">Email</td>
+                  <td>{{vercad.email}}</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <table class="table table-hover table-bordered">
+            <thead class="thead-default">
+              <tr>
+                <th class="t-a-c" colspan="2">Dados de Endereço</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="strong">Endereço</td>
+                <td>{{vercad.place}}</td>
+              </tr>
+
+              <tr>
+                <td class="strong">Bairro</td>
+                <td>{{vercad.bairro}}{{vercad.Address}}</td>
+              </tr>
+              <tr>
+                <td class="strong">Cidade</td>
+                <td>{{vercad.city}}</td>
+              </tr>
+              <tr>
+                <td class="strong">CEP</td>
+                <td>{{vercad.cep}}</td>
+              </tr>
+              <tr>
+                <td class="strong">Estado</td>
+                <td>{{vercad.uf}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" ng-click="mostrartooltip()" data-dismiss="modal">Fechar</button>
+          <button type="button" ng-click="editar($index)" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+
     </div>
-</form>
+
+  </div>
+
+
+
 </div>
 
-</div>
-<div class="wrapper m-t-n-md m-lg r-2x bg-white">          
-<table class="table table-striped">
-<thead class="table-inverse">
-<tr>
-  <th ng-click="sort('name');sortType = 'nome'">Nome <i ng-class="{'fa fa-chevron-up':isSortUp('name'),'fa fa-chevron-down':isSortDown('name'), reverse: reverse}"></i>
-  </th>
-  <th class="oculttab" ng-click="sort('cpf');sortType = 'cpf'">CPF <i ng-class="{'fa fa-chevron-up':isSortUp('cpf'),'fa fa-chevron-down':isSortDown('cpf'), reverse: reverse}"></th>
-  <th class="oculttab" ng-click="sort('phone');sortType = 'phone'">Telefone <i ng-class="{'fa fa-chevron-up':isSortUp('phone'),'fa fa-chevron-down':isSortDown('phone'), reverse: reverse}"></th>
-  <th class="oculttab" ng-click="sort('email');sortType = 'email'">Email <i ng-class="{'fa fa-chevron-up':isSortUp('email'),'fa fa-chevron-down':isSortDown('email'), reverse: reverse}"></th>
-  <th></th>
-</tr>
-</thead>
-<tbody>
-<tr ng-repeat="e in lista | orderBy:sortType:reverse | nullfilter | filter:search track by $index " ng-if="lista">
-  <td>{{ e.name }}</td>
-  <td class="oculttab">{{e.cpf}}</td>
-  <td class="oculttab">{{e.phone}}</td>
-  <td class="oculttab">{{e.email}}</td>
-  
-  <td class=""> <button type="button" class="btn btn-primary btn-xs pull-right" ng-click="ver($index)">Ver</button></td>
-
-                              <!-- Modal -->
-                      
-
-</tr>
-
-</tbody>
-</table>
-
-                          <div class="modal fade" id="vercadModal" tabindex="-1" role="dialog" aria-labelledby="vercadModalLabel" aria-hidden="true" style="display: none;">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" ng-click="mostrartooltip()" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            <h4 class="modal-title" id="vercadModalLabel">Cadastro de {{vercad.name}} </h4>
-                                        </div>
-                                        <div class="modal-body">
-                                          <div class="table-responsive">
-                                          <table class="table table-hover table-bordered">
-                                            <thead class="thead-default"><tr><th class="t-a-c" colspan="2">Dados Pessoais</th></tr></thead>
-                                              <tbody>
-                                                <tr>
-                                                  <td class="strong">Nome Completo</td>
-                                                  <td>{{vercad.name}}</td>
-                                                </tr>
-                                                <tr>
-                                                  <td class="strong">CPF</td>
-                                                  <td>{{vercad.cpf}}</td>
-                                                </tr>
-                                                <tr>
-                                                  <td class="strong">Telefone</td>
-                                                  <td>{{ vercad.phone}}</td>
-                                                </tr>
-                                                <tr>
-                                                  <td class="strong" nowrap="true">Email</td>
-                                                  <td>{{vercad.email}}</td>
-                                                </tr>
-   
-                                              </tbody>
-                                              </table>
-                                            </div>
-                                              
-                                              <table class="table table-hover table-bordered">
-                                                <thead class="thead-default"><tr><th class="t-a-c" colspan="2">Dados de Endereço</th></tr></thead>
-                                                <tbody>
-                                                  <tr>
-                                                    <td class="strong">Endereço</td>
-                                                    <td>{{vercad.place}}</td>
-                                                  </tr>
-                                                 
-                                                  <tr>
-                                                    <td class="strong">Bairro</td>
-                                                    <td>{{vercad.bairro}}{{vercad.Address}}</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="strong">Cidade</td>
-                                                    <td>{{vercad.city}}</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="strong">CEP</td>
-                                                    <td>{{vercad.cep}}</td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td class="strong">Estado</td>
-                                                    <td>{{vercad.uf}}</td>
-                                                  </tr>
-
-                                                </tbody>
-                                              </table>
-                                            
-                                          
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" ng-click="mostrartooltip()" data-dismiss="modal">Fechar</button>
-                                            <button type="button" ng-click="editar($index)" class="btn btn-primary">Editar</button>
-                                        </div>
-                                    </div>
-                                
-                                </div>
-                              
-                            </div>
-                         
-
-
-
-</div> 
-
- <div class="modal fade" id="errorpesquisaModal" tabindex="-1" role="dialog" aria-labelledby="erroreditModalLabel" aria-hidden="true">
+<div class="modal fade" id="errorpesquisaModal" tabindex="-1" role="dialog" aria-labelledby="erroreditModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content t-a-c">
-        <div class="modal-body">
-      Error</div>
+
+      <div class="modal-body">Error</div>
       <div class="modal-footer" style="text-align: center !important;">
-      <button class="btn btn-danger" data-dismiss="modal" type="button">Ok</button>
-        
-        </div>
+        <button class="btn btn-danger" data-dismiss="modal" type="button">Ok</button>
+      </div>
+
     </div>
   </div>
 </div>
