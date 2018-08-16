@@ -1,25 +1,26 @@
-@media (max-width: 767px){
-    .navbar-logo img {
-        vertical-align: middle;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;}}
-
-@media (min-width: 767px){
+@media (max-width: 767px) {
   .navbar-logo img {
-    width: 70%;
-    padding: 5px; }
-
+    vertical-align: middle;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
-
-
-  @media screen and (max-width: 900px) {
-    .oculttab{display: none !important;}
 }
 
-@media (max-width: 767px) { 
-  
+@media (min-width: 767px) {
+  .navbar-logo img {
+    width: 70%;
+    padding: 5px;
+  }
+}
 
+@media screen and (max-width: 900px) {
+  .oculttab {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
   .table-responsive tbody {
     width: auto;
     position: relative;
